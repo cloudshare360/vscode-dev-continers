@@ -1,0 +1,10 @@
+{
+    "name": "My Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:latest",
+    "features": {
+      "ghcr.io/devcontainers/features/docker-in-docker:latest": {}
+    },
+    "forwardPorts": [3000],
+    "extensions": ["ms-python.python", "dbaeumer.vscode-eslint"]
+  }
+  
