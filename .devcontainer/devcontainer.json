@@ -1,26 +1,32 @@
 {
-    "name": "Full Stack Dev Environment",
-    "build": {
-      "dockerfile": "Dockerfile"
-    },
-    "settings": {
-      "terminal.integrated.defaultProfile.linux": "bash"
-    },
-    "extensions": [
-      "dbaeumer.vscode-eslint",
-      "esbenp.prettier-vscode",
-      "ms-python.python",
-      "ms-azuretools.vscode-docker",
-      "eamodio.gitlens",
-      "ms-vscode.cpptools",
-      "golang.go",
-      "redhat.java",
-      "vscjava.vscode-java-pack",
-      "ms-dotnettools.csharp",
-      "angular.ng-template",
-      "vue.volar",
-      "ms-kubernetes-tools.vscode-kubernetes-tools"
-    ],
-    "postCreateCommand": "npm install -g @angular/cli create-react-app @vue/cli",
-    "remoteUser": "vscode"
-  }
+  "name": "Full Stack Dev Environment",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "20"
+    }
+  },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "ms-python.python",
+    "ms-azuretools.vscode-docker",
+    "eamodio.gitlens",
+    "ms-vscode.cpptools",
+    "golang.go",
+    "redhat.java",
+    "vscjava.vscode-java-pack",
+    "ms-dotnettools.csharp",
+    "angular.ng-template",
+    "vue.volar",
+    "ms-kubernetes-tools.vscode-kubernetes-tools"
+  ],
+  "commenttedPostCreateCommand": "npm install -g @angular/cli create-react-app @vue/cli",
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "remoteUser": "vscode",
+  "mounts": ["source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"],
+  "onCreateCommand": "echo '✅ Dev container created at: $(date)' > /tmp/container-init.log"
+}
